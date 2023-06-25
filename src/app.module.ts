@@ -8,7 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      ignoreEnvFile: true,
+      ignoreEnvFile: process.env.NODE_ENV != 'local',
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
