@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         dbName: config.get<string>('MONGODB_DB_NAME'),
       }),
     }),
+    CatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
